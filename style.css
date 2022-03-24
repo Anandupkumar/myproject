@@ -71,7 +71,7 @@ body,h1,h2,h3,h4,h5 {
     padding: 16px;
   }
   
-  span.psw {
+  .close.psw {
     float: right;
     padding-top: 16px;
   }
@@ -140,4 +140,8 @@ body,h1,h2,h3,h4,h5 {
     .cancelbtn {
        width: 100%;
     }
+  }
+
+  .error{
+    margin-left: 15%;
   }

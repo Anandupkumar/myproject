@@ -50,7 +50,7 @@
           
           <div id="id01" class="modal">
             
-            <form class="modal-content animate" action="/action_page.php" method="post">
+            <form class="modal-content animate" name="login_form" action="/action_page.php" method="post">
               <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="login_avatar.jpg" alt="Avatar" class="avatar">
@@ -58,12 +58,12 @@
           
               <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" id="name" name="uname" required>
           
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" id="password" name="psw" required>
                   
-                <button type="submit" class="login_btn" onclick="validate()">Login</button>
+                <button type="submit" class="login_btn" onclick="">Login</button>
                 <label>
                   <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
@@ -81,7 +81,7 @@
 
           <div id="id02" class="modal">
   
-              <form class="modal-content animate" action="/action_page.php" method="post">
+              <form class="modal-content animate" name="signup_form" onsubmit="return validate()" method="post">
                 <div class="imgcontainer">
                   <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                   <img src="login_avatar.jpg" alt="Avatar" class="avatar">
@@ -89,22 +89,26 @@
             
                 <div class="container">
                   <label for="uname"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" name="uname" required>
+                  <input type="text" placeholder="Enter Username" id="name" name="uname" required>
+                  <span id="namerror" class="error" style="color:red"></span><br>
 
                   <label for="email"><b>Email</b></label>
-                  <input type="email" placeholder="Enter Email" name="email" required>
+                  <input type="email" placeholder="Enter Email" id="email" name="email" required>
+                  <span id="emailerror" class="error" style="color:red"></span><br>
 
                   <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+                  <input type="password" placeholder="Enter Password" id="password" name="psw" required>
+                  <span id="password_error" class="error" style="color:red"></span><br>
 
                   <label for="psw2"><b>Confirm Password</b></label>
-                  <input type="password" placeholder="Confirm Password" name="psw2" required>
+                  <input type="password" placeholder="Confirm Password" id="con_password" name="psw2" required>
+                  <span id="con_password_error" class="error" style="color:red"></span><br>
                     
-                  <button type="submit" class="login_btn">Sign up</button>
+                  <input type="submit" value="submit" class="login_btn">
                 </div>
             
                 <div class="container" style="background-color:#f1f1f1">
-                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                  <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                 </div>
               </form>
             </div>
