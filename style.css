@@ -1,0 +1,22 @@
+body,h1,h2,h3,h4,h5 {
+    font-family: "Poppins" sans-serif
+  }
+  body {
+    margin-top: -157px;
+    font-size:16px;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 21%;
+    background-position: top right;
+    backdrop-filter: blur(8px);
+    
+  }
+  .w3-half img{
+    margin-bottom:-6px;
+    margin-top:16px;
+    opacity:0.8;
+    cursor:pointer
+  }
+  .w3-half img:hover{
+    opacity:1
+  }
