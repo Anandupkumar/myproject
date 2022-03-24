@@ -22,6 +22,8 @@
           <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
           <a href="#login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
+
+          
         </div>
       </nav>
 
@@ -42,24 +44,85 @@
           <div class="w3-container" style="margin-top: 13%;">
           <h1 class="w3-jumbo w3-text-white" ><b>my website</b></h1>
           <h1 class="w3-xxxlarge w3-text-white"><b>Explore Kuttanad</b></h1>
-          <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top" onclick="">Login to Explore</button>
-          <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top w3-margin-left" onclick="">or Sign up</button>
-          <hr style="width:50px;border:6px solid green" class="w3-round">
+          <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top" onclick="document.getElementById('id01').style.display='block'">Login to Explore</button>
+          
+          <!--login form-->
+          
+          <div id="id01" class="modal">
+            
+            <form class="modal-content animate" action="/action_page.php" method="post">
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="login_avatar.jpg" alt="Avatar" class="avatar">
+              </div>
+          
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+          
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                  
+                <button type="submit" class="login_btn" onclick="validate()">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+          
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+          <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top w3-margin-left" onclick="document.getElementById('id02').style.display='block'">or Sign up</button>
+          
+          <!--signup form-->
+
+          <div id="id02" class="modal">
+  
+              <form class="modal-content animate" action="/action_page.php" method="post">
+                <div class="imgcontainer">
+                  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  <img src="login_avatar.jpg" alt="Avatar" class="avatar">
+                </div>
+            
+                <div class="container">
+                  <label for="uname"><b>Username</b></label>
+                  <input type="text" placeholder="Enter Username" name="uname" required>
+
+                  <label for="email"><b>Email</b></label>
+                  <input type="email" placeholder="Enter Email" name="email" required>
+
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" required>
+
+                  <label for="psw2"><b>Confirm Password</b></label>
+                  <input type="password" placeholder="Confirm Password" name="psw2" required>
+                    
+                  <button type="submit" class="login_btn">Sign up</button>
+                </div>
+            
+                <div class="container" style="background-color:#f1f1f1">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
         
         <!-- Photo grid (modal) -->
-        <div class="w3-row-padding " style="margin-top: 7%;">
+        <div class="w3-row-padding " style="margin-top: 13%;">
           <div class="w3-half">
-            <img src="img7.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-            <img src="img1.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-            <img src="img3.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
+            <img src="img7.jpg" style="width:100%" onclick="onClick(this)" alt="The Boat races">
+            <img src="img1.jpg" style="width:100%" onclick="onClick(this)" alt="The rivers and lakes">
+            <img src="img3.jpg" style="width:100%" onclick="onClick(this)" alt="The villagers transporting rice through boats">
           </div>
 
           <div class="w3-half">
-            <img src="img4.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-            <img src="img5.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-            <img src="img6.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
+            <img src="img4.jpg" style="width:100%" onclick="onClick(this)" alt="The greeny paddy fields">
+            <img src="img5.jpg" style="width:100%" onclick="onClick(this)" alt="The house boat trip">
+            <img src="img6.jpg" style="width:100%" onclick="onClick(this)" alt="Large paddy fields">
           </div>
         </div>
 
@@ -76,7 +139,7 @@
         <div class="w3-container" id="services" style="margin-top:75px">
           <h1 class="w3-xxxlarge w3-text-green"><b>Services.</b></h1>
           <hr style="width:50px;border:5px solid green" class="w3-round">
-          <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
+          <p>We gives you the ability to search, compare and book house boats from professional third-party providers without leaving the website.</p>
           <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
           dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
