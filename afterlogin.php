@@ -20,8 +20,9 @@
           <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
           <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
           <a href="packages.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
-          <a href="#houseboat" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">House boats</a> 
+          <a href="mybooking.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My bookings</a> 
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+          <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
 
           
         </div>
@@ -48,7 +49,7 @@
         </div>
         
         <!-- Photo grid (modal) -->
-        <div class="w3-row-padding " style="margin-top: 13%;">
+        <div class="w3-row-padding " style="margin-top: 18%;">
           <div class="w3-half">
             <img src="img7.jpg" style="width:100%" onclick="onClick(this)" alt="The Boat races">
             <img src="img1.jpg" style="width:100%" onclick="onClick(this)" alt="The rivers and lakes">

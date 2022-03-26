@@ -37,16 +37,18 @@ window.onclick = function(event) {
     }
 }
 
-//validating in client side//
+//sign up form validating in client side//
 
 function validate(){
   var name=document.signup_form.name.value;
   var email=document.signup_form.email.value;
+  var rate=document.signup_form.rate.value;
   var password=document.signup_form.password.value;
   var con_pass=document.signup_form.con_password.value;
   var namergx = /[a-zA-Z][a-zA-Z ]+[a-zA-Z]$/;
   var emailrgx=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   var passrgx=/^[0-9a-zA-Z]{6,8}$/;
+  var ratergx=/^[0-9]{4,6}$/;
     if(name.match(namergx))
     {
         document.getElementById("namerror").innerHTML="";
@@ -75,6 +77,21 @@ function validate(){
     else{
       document.getElementById("emailerror").innerHTML="Enter valid email..!";
       document.signup_form.email.focus();
+      return false;
+    }
+    if(rate.match(ratergx))
+    {
+        document.getElementById("raterror").innerHTML="";
+    }
+    else if(rate=="")
+    {
+        document.getElementById("raterror").innerHTML="Enter amount..!";
+        document.signup_form.rate.focus();
+        return false;
+    }
+    else{
+      document.getElementById("raterror").innerHTML="Enter valid amount..!";
+      document.signup_form.rate.focus();
       return false;
     }
     if(password.match(passrgx))

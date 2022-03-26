@@ -20,7 +20,7 @@
           <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
           <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
           <a href="#packages" onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-hover-white">Packages</a>
-          <a href="#houseboat" onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-hover-white">House boats</a> 
+          <a href="houseboats.php" onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-hover-white">House boats</a> 
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
           <a href="#login" onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-hover-white">Login</a>
 
@@ -45,6 +45,7 @@
           <div class="w3-container" style="margin-top: 13%;">
           <h1 class="w3-jumbo w3-text-white" ><b>my website</b></h1>
           <h1 class="w3-xxxlarge w3-text-white"><b>Explore Kuttanad</b></h1>
+          <p class="w3-text-white"> Plan your jurny to rice bowl of kerala..</p>
           <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top" onclick="document.getElementById('id01').style.display='block'">Login to Explore</button>
           
           <!--login form-->
