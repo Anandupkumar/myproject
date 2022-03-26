@@ -20,6 +20,10 @@ body,h1,h2,h3,h4,h5 {
   .w3-half img:hover{
     opacity:1
   }
+  .w3-ul li {
+    padding: 8px 0px;
+    border-bottom: 1px solid #ddd;
+}
 
 /* login form */
 

@@ -9,6 +9,7 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 
+
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
@@ -37,6 +38,7 @@ window.onclick = function(event) {
 }
 
 //validating in client side//
+
 function validate(){
   var name=document.signup_form.name.value;
   var email=document.signup_form.email.value;

@@ -11,11 +11,12 @@
             if($result->num_rows >0){
                 $row=$result->fetch_assoc();
                 if($row['name']== $uname && $row['password']== $password){
-                    include('afterlogin.html');
+                    header('location: afterlogin.php');
                 }
             }else{
-                include('index.html');
+                
                 echo '<script>alert("invalid username or password !");</script>';
+                require('index.php');
             }
             
     }
