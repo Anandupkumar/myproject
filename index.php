@@ -43,8 +43,8 @@
         <!-- Header -->
         <div class="w3-container" style="margin-top:157px" id="showcase">
           <div class="w3-container" style="margin-top: 13%;">
-          <h1 class="w3-jumbo w3-text-white" ><b>my website</b></h1>
-          <h1 class="w3-xxxlarge w3-text-white"><b>Explore Kuttanad</b></h1>
+          <h1 class="w3-jumbo w3-text-black" ><b>my website</b></h1>
+          <h1 class="w3-xxxlarge w3-text-black"><b>Explore Kuttanad</b></h1>
           <p class="w3-text-white"> Plan your jurny to rice bowl of kerala..</p>
           <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top" onclick="document.getElementById('id01').style.display='block'">Login to Explore</button>
           
@@ -156,7 +156,7 @@
       <div class="w3-container" id="contact" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-green"><b>Contact.</b></h1>
         <hr style="width:50px;border:5px solid green" class="w3-round">
-        <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+        <p>Do you have any complaints or questions? Fill out the form and fill me in with the details :) We love meeting new people!</p>
         <form action="/action_page.php" target="_blank">
           <div class="w3-section">
             <label>Name</label>

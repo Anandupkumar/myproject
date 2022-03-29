@@ -43,8 +43,8 @@
         <!-- Header -->
         <div class="w3-container" style="margin-top:157px" id="showcase">
           <div class="w3-container" style="margin-top: 0%;">
-          <h1 class="w3-jumbo w3-text-white" ><b>my website</b></h1>
-          <h1 class="w3-xxxlarge w3-text-white"><b>Explore Kuttanad</b></h1>
+          <h1 class="w3-jumbo w3-text-black" ><b>my website</b></h1>
+          <h1 class="w3-xxxlarge w3-text-black"><b>Explore Kuttanad</b></h1>
           
         </div>
         <div id="id01" class="modal">
@@ -98,11 +98,11 @@
               </div>
           
               <div class="container" style="background-color:#f1f1f1">
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                <span class="psw">Do you have a house boat ?</span>
               </div>
             </form>
         </div>
-        <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top w3-margin-left" onclick="document.getElementById('id02').style.display='block'">or Sign up</button>
+        <button type="submit" class="w3-button w3-round-xlarge w3-padding-large w3-black w3-margin-bottom w3-margin-top w3-margin-left" onclick="document.getElementById('id02').style.display='block'">then Sign up</button>
           
           <!--signup form-->
 

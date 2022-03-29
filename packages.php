@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,8 +44,8 @@
         <!-- Header -->
         <div class="w3-container" style="margin-top:157px" id="showcase">
           <div class="w3-container" style="margin-top: 10%;">
-          <h1 class="w3-jumbo w3-text-white" ><b>my website</b></h1>
-          <h1 class="w3-xxxlarge w3-text-white"><b>Explore Kuttanad</b></h1>
+          <h1 class="w3-jumbo w3-text-black" ><b>my website</b></h1>
+          <h1 class="w3-xxxlarge w3-text-black"><b>Explore Kuttanad</b></h1>
           
     </div>
 
@@ -53,112 +55,86 @@
             <hr style="width:50px;border:5px solid green" class="w3-round">
             <div class="w3-center">
                 <div class="w3-row-padding" style="margin:0 -16px">
-                        <div class="w3-third w3-margin-bottom">
-                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off" >
-                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
-                            <li class="w3-padding-16"><b>Lake cruise</b></li>
-                            <li class="w3-padding-16">A houseboat with basic facilities</li>
-                            <li class="w3-padding-16">Neat and clean rooms</li>
-                            <li class="w3-padding-16">Air conditioned rooms</li>
-                            <li class="w3-padding-16">
-                                <h2>2500</h2>
-                                <span class="w3-opacity">per day</span>
-                            </li>
-                            <li class="w3-light-grey w3-padding-24">
-                                <button class="w3-button w3-teal w3-padding-large w3-hover-black">Book</button>
-                            </li>
-                            </ul>
-                        </div>
+
+                <?php
+                    session_start();
+                    $conn=new mysqli("localhost","root","","mydatabase");
+                    if(!$conn){
+                        die("Connection failed: " . $conn->connect_error);
+                    }else{ 
+                        $sql="SELECT boatname,rate FROM boat";
+                        $result=$conn->query($sql);
+                        if($result->num_rows >0){
+                           
+                            while($row=$result->fetch_assoc()){
+                                
+                                $boat=$row['boatname'];
+                                $rate=$row['rate'];
+                ?>
+                                    <form action="packages.php" method="post">
+                                        <div class="w3-third w3-margin-bottom">
+                                            
+                                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off" >
+                                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
+                                            <li class="w3-padding-16"><b name="bname"><?php echo "$boat"; ?></b></li>
+                                            <li class="w3-padding-16">A houseboat with basic facilities</li>
+                                            <li class="w3-padding-16">Neat and clean rooms</li>
+                                            <li class="w3-padding-16">Air conditioned rooms</li>
+                                            <li class="w3-padding-16">
+                                                <h2 name="rate"><?php echo "$rate"; ?></h2>
+                                                <span class="w3-opacity">per day</span>
+                                            </li>
+                                            
+                                            </ul>
+                                            
+                                        </div>
+                                    </form>
+                                    <?php
+                                 }
+                        }
+                    }
+                    
+                    ?>
                         
-                        <div class="w3-third w3-margin-bottom">
-                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off">
-                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
-                            <li class="w3-padding-16"><b>Lake cruise</b></li>
-                            <li class="w3-padding-16">Photography</li>
-                            <li class="w3-padding-16">50GB Storage</li>
-                            <li class="w3-padding-16">Endless Support</li>
-                            <li class="w3-padding-16">
-                                <h2>$ 25</h2>
-                                <span class="w3-opacity">per day</span>
-                            </li>
-                            <li class="w3-light-grey w3-padding-24">
-                                <button class="w3-button w3-teal w3-padding-large w3-hover-black">Book</button>
-                            </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="w3-third">
-                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off">
-                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
-                            <li class="w3-padding-16"><b>Lake cruise</b></li>
-                            <li class="w3-padding-16">Photography</li>
-                            <li class="w3-padding-16">Unlimited Storage</li>
-                            <li class="w3-padding-16">Endless Support</li>
-                            <li class="w3-padding-16">
-                                <h2>$ 25</h2>
-                                <span class="w3-opacity">per day</span>
-                            </li>
-                            <li class="w3-light-grey w3-padding-24">
-                                <button class="w3-button w3-teal w3-padding-large w3-hover-black">Book</button>
-                            </li>
-                            </ul>
-                        </div>
-                </div>
+                </div> 
             </div><br><br>
-            <div class="w3-center">
-                <div class="w3-row-padding" style="margin:0 -16px">
-                        <div class="w3-third w3-margin-bottom">
-                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off">
-                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
-                            <li class="w3-padding-16"><b>Lake cruise</b></li>
-                            <li class="w3-padding-16">Photography</li>
-                            <li class="w3-padding-16">1GB Storage</li>
-                            <li class="w3-padding-16">Mail Support</li>
-                            <li class="w3-padding-16">
-                                <h2>$ 10</h2>
-                                <span class="w3-opacity">per day</span>
-                            </li>
-                            <li class="w3-light-grey w3-padding-24">
-                                <button class="w3-button w3-teal w3-padding-large w3-hover-black">Book</button>
-                            </li>
-                            </ul>
-                        </div>
+                <?php
+            
+                    $ex=$_SESSION['name'];
+                    if($ex!=0){
+                        ?>
+                        <button class="w3-button w3-block w3-black w3-padding-large w3-hover-green" onclick="document.getElementById('id01').style.display='block'" name="btn">Book</button>
+                            
+                        <div id="id01" class="modal">
+                            
+                            <form class="modal-content animate" name="login_form" action="book.php" method="post">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            
+                            </div>
                         
-                        <div class="w3-third w3-margin-bottom">
-                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off">
-                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
-                            <li class="w3-padding-16"><b>Lake cruise</b></li>
-                            <li class="w3-padding-16">Photography</li>
-                            <li class="w3-padding-16">50GB Storage</li>
-                            <li class="w3-padding-16">Endless Support</li>
-                            <li class="w3-padding-16">
-                                <h2>$ 25</h2>
-                                <span class="w3-opacity">per day</span>
-                            </li>
-                            <li class="w3-light-grey w3-padding-24">
-                                <button class="w3-button w3-teal w3-padding-large w3-hover-black">Book</button>
-                            </li>
-                            </ul>
-                        </div>
+                            <div class="container">
+                                <label for="boatname"><b>Boatname</b></label>
+                                <input type="text" placeholder="Enter Boat name" id="name" name="boatname" required>
                         
-                        <div class="w3-third">
-                            <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off">
-                            <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
-                            <li class="w3-padding-16"><b>Lake cruise</b></li>
-                            <li class="w3-padding-16">Photography</li>
-                            <li class="w3-padding-16">Unlimited Storage</li>
-                            <li class="w3-padding-16">Endless Support</li>
-                            <li class="w3-padding-16">
-                                <h2>$ 25</h2>
-                                <span class="w3-opacity">per day</span>
-                            </li>
-                            <li class="w3-light-grey w3-padding-24">
-                                <button class="w3-button w3-teal w3-padding-large w3-hover-black">Book</button>
-                            </li>
-                            </ul>
+                                <label for="psw"><b>Number of days</b></label>
+                                <input type="number" placeholder="Enter Number of days" id="password" name="days" required>
+                                
+                                <button type="submit" class="login_btn" onclick="">Book</button>
+                                
+                            </div>
+                        
+                            <div class="container" style="background-color:#f1f1f1">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                
+                            </div>
+                            </form>
                         </div>
-                </div>
-            </div>
+                        <?php
+                    }else{
+
+                    } ?>
+            
             <div class="container w3-green">
 
             </div>

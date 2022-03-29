@@ -1,11 +1,14 @@
 <?php
+    session_start();
     $conn=new mysqli("localhost","root","","mydatabase");
     if(!$conn){
         die("Connection failed: " . $conn->connect_error);
     }else{
+            $_SESSION['name']=0;
             $bname = $password = "";
             $bname=$_POST["bname"];
             $password=$_POST["psw"];
+            $_SESSION['bname']=$bname;
             $sql="SELECT * FROM boat WHERE boatname= '$bname' AND password= '$password'";
             $result=$conn->query($sql);
             if($result->num_rows >0){
