@@ -17,13 +17,12 @@
           <h3 class="w3-padding-64"><b>Company<br>Name</b></h3>
         </div>
         <div class="w3-bar-block">
-          <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+          <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
           <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
           <a href="#packages" onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
           <a href="houseboats.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">House boats</a> 
-          <a href="#houseboat" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My bookings</a> 
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-          
+          <a href="#login" onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-hover-white">Login</a>
           
         </div>
       </nav>
@@ -85,7 +84,7 @@
               </div>
           
               <div class="container">
-                <label for="uname"><b>Username</b></label>
+                <label for="uname"><b>Username(Boat name)</b></label>
                 <input type="text" placeholder="Enter Username" id="name" name="bname" required>
           
                 <label for="psw"><b>Password</b></label>

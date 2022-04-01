@@ -19,7 +19,7 @@
             }else{
                 
                 echo '<script>alert("invalid username or password !");</script>';
-                require('index.php');
+                require('index.html');
             }
             
     }

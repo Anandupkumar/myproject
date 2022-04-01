@@ -23,8 +23,17 @@
           <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
           <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
           <a href="mybooking.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My bookings</a>  
+          <?php
+            session_start();
+            $ex=$_SESSION['name'];
+            if($ex!=0){
+                ?>
+                <a href="messages.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Messages</a>  
+                <?php
+            }
+            ?>
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-          <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
+          <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
 
           
         </div>
@@ -57,7 +66,7 @@
                 <div class="w3-row-padding" style="margin:0 -16px">
 
                 <?php
-                    session_start();
+                    
                     $conn=new mysqli("localhost","root","","mydatabase");
                     if(!$conn){
                         die("Connection failed: " . $conn->connect_error);
@@ -119,6 +128,9 @@
                         
                                 <label for="psw"><b>Number of days</b></label>
                                 <input type="number" placeholder="Enter Number of days" id="password" name="days" required>
+
+                                <label for="psw"><b>Enter the date</b></label>
+                                <input type="date" placeholder="Enter date" id="password" name="date" required>
                                 
                                 <button type="submit" class="login_btn" onclick="">Book</button>
                                 

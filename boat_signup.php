@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $conn=new mysqli("localhost","root","","mydatabase");
     if(!$conn){
         die("Connection failed: " . $conn->connect_error);
@@ -14,6 +15,7 @@
                 echo"<script>alert('username already taken !')</script>";
                 require('houseboats.php');
             }else{
+                $_SESSION['name']=0;
                 $sql = "INSERT INTO boat (boatname, email, rate, password)VALUES('$name','$email','$rate','$password')";
                 $conn->query($sql);
                 header('location: packages.php');

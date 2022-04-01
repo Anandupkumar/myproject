@@ -21,8 +21,17 @@
           <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
           <a href="packages.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
           <a href="mybooking.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My bookings</a> 
+          <?php
+            session_start();
+            $ex=$_SESSION['name'];
+            if($ex!=0){
+                ?>
+                <a href="messages.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Messages</a>  
+                <?php
+            }
+            ?>
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-          <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
+          <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
 
           
         </div>

@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +24,16 @@
           <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
           <a href="packages.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
           <a href="#houseboat" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My bookings</a> 
+          <?php
+            $ex=$_SESSION['name'];
+            if($ex!=0){
+                ?>
+                <a href="messages.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Messages</a>  
+                <?php
+            }
+            ?>
           <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-          <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
+          <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
 
           
         </div>
@@ -52,14 +63,13 @@
           <h1 class="w3-xxxlarge w3-text-green"><b>My Booking.</b></h1>
             <hr style="width:50px;border:5px solid green" class="w3-round">
         <?php
-                    session_start();
                     $conn=new mysqli("localhost","root","","mydatabase");
                     if(!$conn){
                         die("Connection failed: " . $conn->connect_error);
                     }else{ 
                         $ex=$_SESSION['name'];
                         if($ex!=0){
-                            $sql="SELECT boatname,days,rate FROM orders WHERE username='$ex'";
+                            $sql="SELECT boatname,days,rate,date FROM orders WHERE username='$ex'";
                             $result=$conn->query($sql);
                             if($result->num_rows >0){
                               
@@ -68,6 +78,7 @@
                                     $boat=$row['boatname'];
                                     $days=$row['days'];
                                     $rate=$row['rate'];
+                                    $date=$row['date'];
                                     $rate=$rate*$days;
                                     ?>
                                     <form action="packages.php" method="post">
@@ -76,6 +87,7 @@
                                             <ul class="w3-ul w3-border w3-white w3-center w3-opacity-min w3-hover-opacity-off" >
                                             <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
                                             <li class="w3-padding-16"><b name="bname"><?php echo "$boat"; ?></b></li>
+                                            <li class="w3-padding-16"><?php echo "$date"; ?></li>
                                             <li class="w3-padding-16"><?php echo "$days"; ?></li>
                                             <span class="w3-opacity">days</span>
                                             <li class="w3-padding-16">
@@ -93,9 +105,13 @@
                                 echo"<script>alert('you have no booking !')</script>";
                                 header('location: afterlogin.php');
                             }
+                            ?>
+                              <div class="w3-container">
+                              <button class="w3-button w3-block w3-black w3-padding-large w3-hover-green" onclick="document.getElementById('id01').style.display='block'" name="btn">Cancel booking</button>
+                            <?php
                           }else{
                             $boat=$_SESSION['bname'];
-                            $sql1="SELECT username,days,rate,email FROM orders WHERE boatname='$boat'";
+                            $sql1="SELECT username,days,rate,email,date FROM orders WHERE boatname='$boat'";
                             $result=$conn->query($sql1);
                             if($result->num_rows >0){
 
@@ -105,6 +121,7 @@
                                   $days=$row['days'];
                                   $rate=$row['rate'];
                                   $email=$row['email'];
+                                  $date=$row['date'];
                                   $rate=$rate*$days;
 
                                   ?>
@@ -115,6 +132,8 @@
                                             <li class="w3-black w3-xxxlarge" style="padding: 0"><img src="houseboat.jpg" style="width:100%"></li>
                                             <span class="w3-opacity">user</span>
                                             <li class="w3-padding-16"><b name="bname"><?php echo "$username"; ?></b></li>
+                                            <span class="w3-opacity">date</span>
+                                            <li class="w3-padding-16"><?php echo "$date"; ?></li>
                                             <span class="w3-opacity">days</span>
                                             <li class="w3-padding-16"><?php echo "$days"; ?></li>
                                             <span class="w3-opacity">email</span>
@@ -138,8 +157,15 @@
                       }
 
               ?>
-                <div class="w3-container">
-                <button class="w3-button w3-block w3-black w3-padding-large w3-hover-green" onclick="document.getElementById('id01').style.display='block'" name="btn">Cancel booking</button>
+                
+                <?php
+                  $ex=$_SESSION['name'];
+                  if($ex==0){
+                    ?>
+                    <button class="w3-button w3-block w3-black w3-padding-large w3-hover-green" onclick="document.getElementById('id02').style.display='block'" name="btn">Message to user</button>
+                    <?php
+                  }
+                ?>
                 
                 <div id="id01" class="modal">
             
@@ -162,6 +188,31 @@
                 
                     <div class="container" style="background-color:#f1f1f1">
                       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                      
+                    </div>
+                  </form>
+                </div>
+                <div id="id02" class="modal">
+            
+                  <form class="modal-content animate" name="" action="boatmessage.php" method="post">
+                    <div class="imgcontainer">
+                      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  
+                    </div>
+                
+                    <div class="container">
+                      <label for="boatname"><b>Username</b></label>
+                      <input type="text" placeholder="Enter user name" id="name" name="username" required>
+                
+                      <label for="psw"><b>Type Messages</b></label>
+                      <input type="text" placeholder="Type messages" id="password" name="message" required>
+                        
+                      <button type="submit" class="login_btn" onclick="">Send</button>
+                      
+                    </div>
+                
+                    <div class="container" style="background-color:#f1f1f1">
+                      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                       
                     </div>
                   </form>

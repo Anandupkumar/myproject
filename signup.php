@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $conn=new mysqli("localhost","root","","mydatabase");
     if(!$conn){
         die("Connection failed: " . $conn->connect_error);
@@ -11,12 +12,12 @@
             $result=$conn->query($sql1);
             if($result->num_rows >0){
                 echo"<script>alert('username already taken !')</script>";
-                require('index.php');
+                require('index.html');
             }else{
                 $sql = "INSERT INTO users (name, email, password)VALUES('$name','$email','$password')";
                 $conn->query($sql);
                 header('location: afterlogin.php');
-                
+                $_SESSION['name']=$name;
             }
           }
 ?>

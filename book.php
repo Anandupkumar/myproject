@@ -9,13 +9,14 @@
         if($ex!=0){
             $boat=$_POST['boatname'];
             $days=$_POST['days'];
+            $date=$_POST['date'];
             $sql="SELECT * FROM boat WHERE boatname='$boat'";
             $result=$conn->query($sql);
             if($result->num_rows >0){
                 $row=$result->fetch_assoc();
                 $boat=$row['boatname'];
                 $rate=$row['rate'];
-                $sql1="INSERT INTO orders (username ,boatname ,days ,rate, email ) VALUES ('$ex','$boat','$days','$rate','$email')";
+                $sql1="INSERT INTO orders (username ,boatname ,days ,rate, email,date ) VALUES ('$ex','$boat','$days','$rate','$email','$date')";
                 $conn->query($sql1);
                 echo"<script>alert('Your trip booked')</script>";
                 require('mybooking.php');
@@ -25,7 +26,7 @@
             }
         }else{
             echo"<script>alert('Login as a user to book packages !')</script>";
-            require('index.php');
+            require('index.html');
         }
     
     }     
